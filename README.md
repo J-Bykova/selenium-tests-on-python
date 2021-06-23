@@ -1,1 +1,1 @@
-# SeleniumPyCharm
+# Python testing monorepo
