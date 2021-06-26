@@ -5,4 +5,7 @@ To get back to the normal terminal mode run:
 Command for running tests:  
 ``behave``  
 Run a particular scenario  
-``behave -n "<scenario name>"``
+``behave -n "<scenario name>"``  
+Run a particular feature  
+`` behave -i <filename>
+``
