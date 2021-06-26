@@ -33,3 +33,16 @@ Feature: Navigation menu
     Given Main page is open
     When  I click the 'Sell' link in the top header
     Then  I see the 'Selling on eBay | Electronics, Fashion, Home & Garden | eBay' page
+
+
+  Scenario: The 'Watchlist' button open to the 'Please sign in to view items you are watching' drop-down window when user is not authorized
+    Given Main page is open
+    When  I click the 'Watchlist' link in the top header
+    Then  I see the 'Please sign in to view items you are watching.' dropdown
+
+
+  Scenario: The 'Sign in' link in Watchlist leads to the 'Sign in or Register' page
+    Given Main page is open
+    When  I click the 'Watchlist' link in the top header
+    And   I click the 'Sign in' link in the Watchlist dropdown
+    Then  I see the 'Sign in or Register | eBay' page
