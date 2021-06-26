@@ -1,6 +1,5 @@
 from selenium import webdriver
 from behave import step
-from time import sleep
 
 
 @step("Main page is open")
@@ -21,5 +20,10 @@ def input_into_search_field(context):
 def click_search_button(context):
     search_button = context.driver.find_element_by_xpath("//input[@class='btn btn-prim gh-spr']")
     search_button.click()
-    sleep(5)
 
+
+@step("I see the 'shoes' page")
+def check_page_title(context):
+    expected_title = "shoes | eBay"
+    actual_title = context.driver.title
+    assert expected_title == actual_title

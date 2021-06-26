@@ -3,4 +3,6 @@ Every time you open a new terminal run this command first:
 To get back to the normal terminal mode run:  
 ``deactivate``  
 Command for running tests:  
-``behave``
+``behave``  
+Run a particular scenario  
+``behave -n "<scenario name>"``
