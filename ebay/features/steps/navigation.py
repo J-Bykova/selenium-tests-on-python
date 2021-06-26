@@ -5,4 +5,3 @@ from behave import step
 def click_top_header_sign_in_link(context):
     sign_in_link = context.driver.find_element_by_xpath("//*[@id='gh-ug']/a[text()='Sign in']")
     sign_in_link.click()
-
