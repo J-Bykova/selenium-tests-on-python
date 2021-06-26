@@ -1,6 +1,6 @@
 from selenium import webdriver
 from behave import step
-
+from utils.asserts import assert_equal
 
 @step("Main page is open")
 def open_main_page(context):
@@ -24,6 +24,6 @@ def click_search_button(context):
 
 @step("I see the 'shoes' page")
 def check_page_title(context):
-    expected_title = "shoes | eBay"
+    expected_title = "shoes | eBay1"
     actual_title = context.driver.title
-    assert expected_title == actual_title
+    assert_equal(expected_title, actual_title)
