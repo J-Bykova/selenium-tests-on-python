@@ -6,7 +6,7 @@ from utils.asserts import assert_equal
 @step("Main page is open")
 def open_main_page(context):
     context.driver = webdriver.Chrome(
-        executable_path="/Users/jenny/Code/studying/selenium/Selenium-tests-on-python/ebay/drivers/chromedriver"
+        executable_path="/Users/jenny/Code/studying/testing/Selenium-tests-on-python/ebay/drivers/chromedriver"
     )
     context.driver.get("http://www.ebay.com")
 
