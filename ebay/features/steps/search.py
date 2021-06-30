@@ -1,3 +1,5 @@
+import time
+
 from behave import step
 
 
@@ -11,6 +13,7 @@ def input_into_search_field(context, product):
 def click_search_button(context):
     search_button = context.driver.find_element_by_xpath("//input[@class='btn btn-prim gh-spr']")
     search_button.click()
+    time.sleep(2)
 
 
 @step("I click the 'Shop by category' button")
@@ -25,13 +28,13 @@ def click_product_category_link(context, product_category):
     product_category_link.click()
 
 
-@step("I click the All Categories dropdown")
+@step("I click the 'All Categories' dropdown")
 def click_categories_dropdown(context):
     categories_dropdown = context.driver.find_element_by_xpath(f"//option[text()='All Categories']")
     categories_dropdown.click()
 
 
-@step("I click the '{category}' link")
+@step("I push the '{category}' link")
 def click_categories_dropdown(context, category):
     categories_dropdown = context.driver.find_element_by_xpath(f"//option[text()='{category}']")
     categories_dropdown.click()

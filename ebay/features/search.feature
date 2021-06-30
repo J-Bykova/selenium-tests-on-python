@@ -23,15 +23,15 @@ Feature: Product search
       | Yard, garden & outdoor    | Yard, Garden & Outdoor Living Items for sale \| In Stock \| eBay      |
       | Motorcycles               | Motorcycles for sale \| eBay                                          |
 
-#TODO этот тест падает
+
   Scenario Outline: Search for a valid product type by 'All Categories' dropdown
     Given Main page is open
     When I click the 'All Categories' dropdown
-    And I click the '<category>' link
+    And I push the '<category>' link
     And  I click the search button
     Then  I see the '<title>' page
     Examples:
-      | category          | title                                 |
-      | Music             | Music for sale \| eBay                |
-      |  Dolls & Bears    | Dolls & Teddy Bears for sale \| eBay  |
-      |  Movies & TV      | Movies & TV for sale \| eBay          |
+      | category              | title                                           |
+      | Music                 | Music for sale \| eBay                          |
+      | Dolls & Bears         | Dolls & Teddy Bears for sale \| eBay            |
+      | Tickets & Experiences | Tickets & Experiences products for sale \| eBay |
