@@ -10,12 +10,12 @@ def click_top_header_sign_in_link(context):
 
 @step("I click the 'register' link in the top header")
 def click_top_header_register_link(context):
-    context.driver.find_element_by_xpath("//*[@id='gh-ug-flex']/a[text()='register']").click()
+    context.driver.find_element_by_xpath("//*[@id='gh-ug-flex']").click()
 
 
 @step("I click the '{name_link}' link in the top header")
 def click_top_header_link(context, name_link):
-    context.driver.find_element_by_xpath(f"//div[@id='gh-top']//a[text()= '{name_link}']").click()
+    context.driver.find_element_by_xpath(f"//div[@id='gh-top']//a[text()= ' {name_link}']").click()
     time.sleep(1)
 
 
@@ -28,7 +28,7 @@ def click_top_header_daily_deals_link(context, expected_title):
 
 @step("I click the 'Sign in' link in the Watchlist dropdown")
 def click_sign_in_link_into_watchlist_dropdown(context):
-    context.driver.find_element_by_xpath("//*[@class='rvi__title']/a").click()
+    context.driver.find_element_by_xpath("//div[@class='rvi__title']/a").click()
 
 
 @step("I cursor at 'My eBay' in the top header")
@@ -37,3 +37,4 @@ def cursor_at_my_ebay_link(context):
     action = ActionChains(context.driver)
     action.move_to_element(my_ebay_button).perform()
     time.sleep(1)
+

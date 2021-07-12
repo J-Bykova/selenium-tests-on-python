@@ -22,9 +22,9 @@ def click_category_button(context):
     category_button.click()
 
 
-@step("I click the '{product_category}' link")
-def click_product_category_link(context, product_category):
-    product_category_link = context.driver.find_element_by_xpath(f"//a[text() = '{product_category}']")
+@step("I click the '{name}' link")
+def click_product_category_link(context, name):
+    product_category_link = context.driver.find_element_by_xpath(f"//a[text() = '{name}']")
     product_category_link.click()
 
 
