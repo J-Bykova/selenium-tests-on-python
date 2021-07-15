@@ -3,6 +3,16 @@ import time
 from behave import step
 
 
+@step("I see the '<product>' matching my request")
+def verify_item_title(context, product):
+    list_title = context.driver.find_elements_by_xpath(
+        f"//*[@class='srp-results srp-grid clearfix']//*[@class='s-item          ']"
+        f"//*[@class='s-item__title' and contains(text(),'{product}')]")
+    for item in list_title:
+        if product not in item.text:
+            raise ValueError(f"Item {item.text} does not have {item}")
+
+
 @step("I enter '{product}' into the search field")
 def input_into_search_field(context, product):
     search_field = context.driver.find_element_by_xpath("//input[@class='gh-tb ui-autocomplete-input']")

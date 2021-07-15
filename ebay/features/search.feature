@@ -1,5 +1,16 @@
 Feature: Product search
 
+  Scenario Outline: Search for particular page using search field
+    Given Main page is open
+    When  I enter '<product>' into the search field
+    And   I click the search button
+    Then  I see the '<product>' matching my request
+    Examples:
+      | product |
+      | Shoes   |
+      | hat     |
+      | guitar  |
+
   Scenario Outline: Search for a valid product type by search input
     Given Main page is open
     When  I enter '<product>' into the search field
