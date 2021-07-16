@@ -11,6 +11,7 @@ Feature: Product search
       | hat     |
       | guitar  |
 
+
   Scenario Outline: Search for a valid product type by search input
     Given Main page is open
     When  I enter '<product>' into the search field
@@ -47,16 +48,3 @@ Feature: Product search
       | Dolls & Bears         | Dolls & Teddy Bears for sale \| eBay            |
       | Tickets & Experiences | Tickets & Experiences products for sale \| eBay |
 
-
-# TODO ???
-#  Scenario Outline: Search for a valid product type by 'Advanced Search'
-#    Given Main page is open
-#    When I click the 'Advanced' link
-##    And I push the '<category>' link
-##    And  I click the search button
-#    Then  I see the '<title>' page
-#    Examples:
-#      | category | title  |
-#      |          |        |
-#      |          |        |
-#      |          |        |
