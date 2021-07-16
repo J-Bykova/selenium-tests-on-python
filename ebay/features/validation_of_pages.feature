@@ -27,10 +27,9 @@ Feature: Validation of pages
     Given Main page is open
     When  I enter 'Shoes' into the search field
     And   I click the search button
-    And   I go to results page '<x_page>'
-    Then  I see the word 'Shoes' in each result heading from '<x_page>' to '<y_page>'
+    Then  I see the words '<words>' in each result heading from '<from>' to '<to>'
     Examples:
-      | x_page | y_page |
-      | 1      | 2      |
-      | 3      | 7      |
-      | 6      | 2      |
+      | words                           | from | to |
+      | Shoe,Shoes,Sneakers,Trail,Asics | 1    | 3  |
+      | Shoe,Shoes,Sneakers,Trail,Asics | 3    | 5  |
+      | Shoe,Shoes,Sneakers,Trail,Asics | 5    | 3  |
