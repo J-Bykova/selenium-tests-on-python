@@ -1,13 +1,13 @@
 Feature: Validation of pages
 
-  Scenario Outline: Search validation on first 3 pages
+  Scenario Outline: Search validation on few pages
     Given Main page is open
     When  I enter '<product>' into the search field
     And   I click the search button
-    Then  I see '<product>' on first '<amount>' pages
+    Then  I see '<product>' on first '<num>' pages
     Examples:
-      | product | amount |
-      | Shoes   | 3      |
+      | product | num |
+      | Shoes   | 3   |
 
 
   Scenario Outline: Search validation on some pages

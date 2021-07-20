@@ -3,13 +3,13 @@ import time
 from behave import step
 
 
-@step("I see '{product}' on first '{amount}' pages")
-def items_on_first_3_pages(context, product, amount):
+@step("I see '{product}' on first '{num}' pages")
+def items_on_first_3_pages(context, product, num):
     mismatches = []
 
-    for _ in range(int(amount)):
-        next_arrow = context.driver.find_element_by_xpath("//a[@aria-label=''Next page]")
-        items_on_the_page = context.driver.find_element_by_xpath("//li[contains(@class, ''s-item     )]//h3")
+    for _ in range(int(num)):
+        next_arrow = context.driver.find_element_by_xpath("//a[@aria-label='Next page']")
+        items_on_the_page = context.driver.find_element_by_xpath("//li[contains(@class, 's-item')]//h3")
         for item in items_on_the_page:
             if {product} not in item.text.lower():
                 mismatches.append(item.text)
@@ -17,7 +17,7 @@ def items_on_first_3_pages(context, product, amount):
         next_arrow.click()
 
     if mismatches:
-        raise ValueError(f"{len(mismatches)} item {mismatches} are not ")
+        raise ValueError(f"{len(mismatches)} item {mismatches} are not")
 
 
 @step("I see '{product}' on first '{amount}' pages with while loop")
@@ -25,7 +25,7 @@ def items_on_first_3_pages(context, product, amount):
     mismatches = []
     current_page = context.driver.find_element_by_xpath("//a[@class='pagination__item' and @aria-current]").text
     while int(current_page) <= int(amount):
-        items_on_the_page = context.driver.find_element_by_xpath("//li[contains(@class, ''s-item     )]//h3")
+        items_on_the_page = context.driver.find_element_by_xpath("//li[contains(@class, 's-item')]//h3")
         for item in items_on_the_page:
             if product not in item.text.lower():
                 mismatches.append(item.text)
@@ -42,13 +42,18 @@ def items_on_first_3_pages(context, product, amount):
     current_page = context.driver.find_element_by_xpath("//a[@class='pagination__item' and @aria-current]").text
 
     if mismatches:
-        raise ValueError(f"{len(mismatches)} item {mismatches} are not ")
+        raise ValueError(f"{len(mismatches)} item {mismatches} are not")
 
 
 @step("I go to results page '{page}'")
 def go_to_results_page(context, page):
     page_link = context.driver.find_element_by_xpath(f"//*[@class='pagination__items']//a[text() = '{page}']")
     page_link.click()
+
+
+# TODO
+# @step("I see the word 'Shoes' in each result heading")
+# def check_results_in_page(context):
 
 
 @step("I see the words '{words}' in each result heading from '{from_page_number}' to '{to_page_number}'")
@@ -120,4 +125,3 @@ def ensure_page_exists(context, page_number):
         context.driver.find_element_by_xpath(f"//*[@class='pagination__items']//a[text()='{page_number}']")
     except Exception:
         raise AssertionError(f'Page does not exist: {page_number}')
-
